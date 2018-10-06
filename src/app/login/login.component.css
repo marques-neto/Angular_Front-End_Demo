@@ -1,0 +1,41 @@
+.flex{
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: row;
+	width: 100vw;
+	height: 100vh;
+	background-color: #ECECEC
+}
+.card{
+	width: 28rem;
+	height: 28rem;
+	box-shadow: 0px 2px 2px;
+	align-items: center;
+}
+.card h4{
+	color: #518DE6;
+	margin-top: 15%;
+	margin-bottom: 15%;
+}
+.input-group{
+		width: 85%;
+		border-color: #518DE6;
+		border-width: 1px;
+		border-style: solid;
+		border-radius: 50px;
+}
+.input-group input{
+	border-radius: 50px;
+	background-color: #EFEFEF;
+	padding-left: 7%;
+}
+.btn{
+	width: 50%;
+	border-radius: 20px;
+	background-color: #518DE6;
+	color: white;
+	margin-top: 6%;
+	margin-bottom: 4%;
+}
+
