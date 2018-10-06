@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   loginUser() {
-    if (this.newUser.email === '' && this.newUser.password === '') {
+    if (this.newUser.email === '' || this.newUser.password === '') {
       alert('Login inválido')
     } else {
       this.validatorUser()
