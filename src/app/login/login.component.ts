@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { user } from '../models/user';
+import { AuthService } from '../auth.service';
+import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,14 +13,24 @@ export class LoginComponent implements OnInit {
   email : string;
   password : string;
 
-  constructor() { }
+  constructor(private auth : AuthService, private route : Router) { }
 
   ngOnInit() {
   }
   loginUser(){
-    this.newUser.email = this.email;
-    this.newUser.password = this.password;
-    
-  }
+    if(this.newUser.email === '' && this.newUser.password === ''){
+      alert('Login inválido')
+    }else{
+      this.validatorUser()
 
+    }
+  }
+  validatorUser(){
+    if(this.auth.isValid(this.newUser)){
+      this.route.navigate(['dash'])
+      
+    }else{
+      alert('Login inválido')
+    }
+  }
 }
