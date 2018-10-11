@@ -13,17 +13,17 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   loginUser() {
-    if (this.newUser.email === '' || this.newUser.password === '') {
-      alert('Login inválido')
-    } else {
-      this.validatorUser()
+    if(this.validatorUser() && this.auth.isValid(this.newUser)){
+      this.route.navigate(['dash'])
+    }else{
+      window.alert('Login inválido')
     }
   }
   validatorUser() {
-    if (this.auth.isValid(this.newUser)) {
-      this.route.navigate(['dash'])
-    } else {
-      alert('Login inválido')
+    if(this.newUser.email === '' || this.newUser.password === ''){
+      return false
+    }else{
+      return true
     }
   }
 }

@@ -1,15 +1,15 @@
-<div class="flex">
+<form (ngSubmit)="createUser()" class="flex">
   <div class="card">
     <h4>C A D A S T R O</h4>
     <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Nome">
+      <input type="text" class="form-control" placeholder="Nome"  [(ngModel)]="newUser.nome" name="nome">
     </div>
     <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Email">
+      <input type="text" class="form-control" placeholder="Email" [(ngModel)]="newUser.email" name="email">
     </div>
     <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Senha">
+      <input type="password" class="form-control" placeholder="Senha" [(ngModel)]="newUser.password" name="password">
     </div>
-    <button class="btn" type="submit">Cadastrar</button>
+    <button class="btn" submit>Cadastrar</button>
   </div>
-</div>
+</form>

@@ -1,15 +1,15 @@
-<div class="flex">
+<form (ngSubmit)="loginUser()" class="flex">
 	<div class="card">
 		<h4>L O G I N</h4>
 		<div class="input-group mb-3">
-			<input type="text" class="form-control" placeholder="Email" [(ngModel)]="newUser.email">
+			<input type="text" class="form-control" placeholder="Email" [(ngModel)]="newUser.email" name="email">
 		</div>
 		<div class="input-group mb-3">
-			<input type="password" class="form-control" placeholder="Senha" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="newUser.password">
+			<input type="password" class="form-control" placeholder="Senha" name="password"  [(ngModel)]="newUser.password">
 		</div>
-		<button class="btn" type="submit" (click)="loginUser()">Entrar</button>
+		<button class="btn" submit>Entrar</button>
 		<p class="botao">
 			<a routerLink='/register' title="Meu Link">Cadastre-se</a>
 		</p>
 	</div>
-</div>
+</form>
