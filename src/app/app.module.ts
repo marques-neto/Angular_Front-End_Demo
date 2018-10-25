@@ -1,28 +1,22 @@
+import { AuthGuard } from './tarefas/guards/auth-guard';
+import { TarefaService } from './tarefas/shared/tarefa.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { FormsModule, Validators, FormGroup, FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { RegisterComponent } from './register/register.component';
-import { DashComponent } from './dash/dash.component';
-import { RouterModule } from '../../node_modules/@angular/router';
-import { routes } from './routes';
-import { AuthService } from './auth.service';
+import { AppRoutingModule } from './app-routing.module'
+import { TarefasModule } from './tarefas';
+
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    DashComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-   
-    RouterModule.forRoot(routes)
+    AppRoutingModule,
+    TarefasModule
   ],
-  providers: [AuthService,  FormBuilder],
+  providers: [TarefaService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

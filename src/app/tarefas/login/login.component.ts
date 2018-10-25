@@ -1,7 +1,7 @@
+import { TarefaService } from './../shared/tarefa.service';
 import { Component, OnInit } from '@angular/core';
-import { User } from '../models/user';
-import { AuthService } from '../auth.service';
-import { Router } from '../../../node_modules/@angular/router';
+import { User } from '../shared/user.model';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,12 +9,12 @@ import { Router } from '../../../node_modules/@angular/router';
 })
 export class LoginComponent implements OnInit {
   newUser: User = new User();
-  constructor(private auth: AuthService, private route: Router) { }
+  constructor(private tarefaService: TarefaService, private router: Router) { }
   ngOnInit() {
   }
   loginUser() {
-    if(this.validatorUser() && this.auth.isValid(this.newUser)){
-      this.route.navigate(['dash'])
+    if(this.validatorUser() && this.tarefaService.isValid(this.newUser)){
+      this.router.navigate(['/tarefas/dash'])
     }else{
       window.alert('Login inválido')
     }
